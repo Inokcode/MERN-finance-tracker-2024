@@ -16,7 +16,11 @@ router.get("/getAllByUserID", async (req:Request,res:Response)=>{
       res.status(500).send(err)  
     }
     // 
-  
+    try {
+        
+    } catch (error) {
+        
+    }
 });
 
 
