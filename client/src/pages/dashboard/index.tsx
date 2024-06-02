@@ -1,11 +1,11 @@
-import {useUser} from '@clerk/clerk-react'
-import { FinancialRecordForm } from './FinancialRecordForm';
+import { useUser } from "@clerk/clerk-react";
+import { FinancialRecordForm } from "./FinancialRecordForm";
 export default function Dashboard() {
-    const {user} = useUser();
+  const { user } = useUser();
   return (
     <div className="dashboard-container">
-        <h1>Welcome {user?.firstName} Here Are Your Finance:</h1>
-        <FinancialRecordForm/>
+      <h1>Welcome {user?.firstName} Here Are Your Finance:</h1>
+      <FinancialRecordForm />
     </div>
-  )
+  );
 }

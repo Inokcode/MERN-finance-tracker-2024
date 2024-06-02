@@ -1,18 +1,22 @@
-import express,{Express} from 'express';
-import mongoose from 'mongoose';
+import express, { Express } from "express";
+import mongoose from "mongoose";
 import FinanceRecordRouter from "./routes/financialrecords";
-
+import cors from "cors";
 
 const app: Express = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
-const mongoURI: string = "mongodb+srv://regilearn:3XYLkpVhyABZLywA@personalfinancetracker.xrtidp3.mongodb.net/";
+app.use(cors());
 
-mongoose.connect(mongoURI)
-.then(()=> console.log("CONNECTED TO MONGODB!"))
-.catch((err)=> console.error("FAILED TO CONNECT TO MONGODB:", err));
+const mongoURI: string =
+  "mongodb+srv://regilearn:3XYLkpVhyABZLywA@personalfinancetracker.xrtidp3.mongodb.net/";
 
-app.use("/financialrecords",FinanceRecordRouter);
+mongoose
+  .connect(mongoURI)
+  .then(() => console.log("CONNECTED TO MONGODB!"))
+  .catch((err) => console.error("FAILED TO CONNECT TO MONGODB:", err));
 
-app.listen(port,()=> console.log(`Server Running on Port ${port}`))
+app.use("/financialrecords", FinanceRecordRouter);
+
+app.listen(port, () => console.log(`Server Running on Port ${port}`));
