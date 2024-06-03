@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-interface FinanceRecord {
+export interface FinanceRecord {
   id?: string;
   userId: string;
   date: Date;
